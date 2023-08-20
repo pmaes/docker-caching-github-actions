@@ -11,5 +11,5 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - run: docker buildx build -t caching-test --load .
+      - run: docker buildx build -t caching-test --load --cache-to type=gha,mode=max --cache-from type=gha .
       - run: docker run --rm caching-test
